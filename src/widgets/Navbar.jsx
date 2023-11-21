@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import {
   AppBar,
   Button,
@@ -12,7 +11,6 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onClick = async (event) => {
