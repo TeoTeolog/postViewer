@@ -1,8 +1,11 @@
+//very thin page
+
+import { PostList } from "#widgets/post-list";
+
 export default function Dashboard(props) {
   return (
     <>
-      <div>Test</div>
-      <h1>DashBoard!</h1>
+      <PostList />
     </>
   );
 }

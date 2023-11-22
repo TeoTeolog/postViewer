@@ -1,19 +1,19 @@
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useGetPostByIdQuery } from "../../shared/api/postApi";
+import { PostDetailCard } from "#entities/post";
+import { usePostModel } from "#entities/post";
 
 export default function PostDetails(props) {
   const { taskId } = useParams();
-  const { data, error, isLoading } = useGetPostByIdQuery(taskId);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  const { post, error, isLoading } = usePostModel(taskId);
 
   return (
     <>
-      <h1>Post</h1>
-      {!!data ? data.body : "loading"}
+      <h1>Post #{post?.id}</h1>
+      {isLoading || !post ? (
+        "loading"
+      ) : (
+        <PostDetailCard key={post.id} post={post} />
+      )}
     </>
   );
 }
