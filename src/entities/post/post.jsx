@@ -63,7 +63,7 @@ export const Post = (props) => {
   };
 
   return (
-    <Card style={styles.card}>
+    <Card style={styles.card} id={"post" + id}>
       <CardHeader
         avatar={<div style={styles.avatar}></div>}
         title={<Typography style={styles.title}>{title}</Typography>}

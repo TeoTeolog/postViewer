@@ -1,4 +1,7 @@
-import { useGetPostByIdQuery } from "#shared/api/postApi";
+import {
+  useGetPostByIdQuery,
+  useGetPostsSliceQuery,
+} from "#shared/api/postApi";
 import { useEffect, useState } from "react";
 
 //model using created API by RTK Query; fetching and parsing
@@ -21,8 +24,11 @@ export const usePostModel = (id) => {
 
 //for list of posts
 export const usePostsListModel = () => {
-  // i think it is legal cheat, not a crutch (if it eyesore, i can fix it)
-  const { data, isLoading, error } = useGetPostByIdQuery("");
+  // a little prepaering before virtualization
+  const { data, isLoading, error } = useGetPostsSliceQuery({
+    start: 0,
+    limit: 50,
+  });
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     if (data)

@@ -56,7 +56,7 @@ export const PostDetailCard = (props) => {
         <Button
           style={styles.button}
           onClick={() => {
-            navigate(`/`);
+            navigate(`/#post${id}`);
           }}
         >
           Go back
